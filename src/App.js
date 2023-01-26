@@ -6,6 +6,8 @@ import MainContent from './components/MainContent';
 function App() {
     return (
         <div className="ch-a-container">
+
+            {/* Left Side */}
             <div className="ch-side-left">
             <img
                 src={logoImage}
@@ -18,6 +20,8 @@ function App() {
                 }}
             />
             </div>
+
+            {/* Main Content */}
             <div className="ch-content-right">
                 <MainContent />
             </div>
