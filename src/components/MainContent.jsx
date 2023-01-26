@@ -31,10 +31,11 @@ const MainContent = () => {
     
         // cleanup component to prevent memory leaks
         return () => {
-          window.removeEventListener('resize', handleOverlap);
+            window.removeEventListener('resize', handleOverlap);
         };
-        // eslint-disable-next-line
-      }, []);
+
+    // eslint-disable-next-line
+    }, []);
 
     return (
         <>
@@ -45,7 +46,7 @@ const MainContent = () => {
                 <Table />
             </div>
         </>
-     );
+    );
 }
  
 export default MainContent;
