@@ -31,6 +31,15 @@ body {
   min-width: 300px;
   box-sizing: border-box;
 }
+.ch-search {
+  border: 3px solid red;
+  width: 100%;
+  height: 75px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .ch-content-right {
   border: 3px solid grey;
   width: -webkit-fill-available;

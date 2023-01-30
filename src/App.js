@@ -2,6 +2,7 @@ import './App.css';
 
 import logoImage from './images/logo_CH.svg';
 import MainContent from './components/MainContent';
+import Menu from './components/Menu';
 
 function App() {
     return (
@@ -19,6 +20,13 @@ function App() {
                 // zIndex: 4,
                 }}
             />
+            <div className="ch-search">
+                Search
+            </div>
+            <div className="ch-menu-items">
+                <Menu />
+            </div>
+                
             </div>
 
             {/* Main Content */}
