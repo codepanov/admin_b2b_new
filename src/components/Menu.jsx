@@ -1,7 +1,19 @@
 const Menu = () => {
     return (
         <>
-            <p>Hello from Menu</p>
+            <div className="ch-menu">
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+                <p>Hello from Menu</p>
+            </div>
         </>
     );
 }

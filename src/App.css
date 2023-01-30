@@ -30,15 +30,29 @@ body {
   border: 3px solid purple;
   min-width: 300px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .ch-search {
   border: 3px solid red;
   width: 100%;
-  height: 75px;
+  min-height: 75px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ch-menu-items {
+  overflow-y: auto;
+}
+.ch-menu {
+  /* border: 3px solid green; */
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .ch-content-right {
   border: 3px solid grey;
