@@ -10,22 +10,22 @@ function App() {
 
             {/* MENU / Left Side */}
             <div className="ch-side-left">
-            <img
-                src={logoImage}
-                alt="logo CH"
-                style={{ 
-                width: '100%',
-                height: '90px',
-                objectFit: 'cover',
-                // zIndex: 4,
-                }}
-            />
-            <div className="ch-search">
-                Search
-            </div>
-            <div className="ch-menu-wrapp">
-                <Menu />
-            </div>
+                <img
+                    src={logoImage}
+                    alt="logo CH"
+                    style={{ 
+                    width: '100%',
+                    height: '90px',
+                    objectFit: 'cover',
+                    // zIndex: 4,
+                    }}
+                />
+                <div className="ch-search">
+                    Search
+                </div>
+                <div className="ch-menu-wrapp">
+                    <Menu />
+                </div>
                 
             </div>
 

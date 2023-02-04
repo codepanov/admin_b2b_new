@@ -10,27 +10,32 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { lines } from "../temp_data/products";
 
 export default function MenuItems() {
-    // names of lines (linije), from which submenu is opened (for example: "Grejanje")
-    const [lineName, setLineName] = React.useState('');
-
-    // names of families of products (familije) (e.g. Bakarne cevi, fiting, armatura, ...)
-    const [families, setFamilies] = React.useState([]);
-
-    // state of submenu (open or closed)
-    const [submenu, setSubmenu] = React.useState(false);
-
-    // string typed into the search textfield
-    const [searchParam, setSearchParam] = React.useState('');
-
-    // when search is set to motion, this state is set to true (to open searchSubmenu)
-    const [searchSubmenu, setSearchSubmenu] = React.useState(false);
 
     const [lines_filteredData, setLines_filteredData] = React.useState(lines);
+
+    // // names of lines (linije), from which submenu is opened (for example: "Grejanje")
+    // const [lineName, setLineName] = React.useState('');
+
+    // // names of families of products (familije) (e.g. Bakarne cevi, fiting, armatura, ...)
+    // const [families, setFamilies] = React.useState([]);
+
+    // // state of submenu (open or closed)
+    // const [submenu, setSubmenu] = React.useState(false);
+
+    // // string typed into the search textfield
+    // const [searchParam, setSearchParam] = React.useState('');
+
+    // // when search is set to motion, this state is set to true (to open searchSubmenu)
+    // const [searchSubmenu, setSearchSubmenu] = React.useState(false);
 
     // const handleClick = (index) => {
     //     setLineName(lines_filteredData[index].text);
     //     setFamilies(lines_filteredData[index].families);
     // };
+
+    // function openSubmenu() {
+    //     setSubmenu(true);
+    // }
 
     return (
         <>
