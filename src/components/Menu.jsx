@@ -1,18 +1,9 @@
+import MenuItems from "./MenuItems";
 const Menu = () => {
     return (
         <>
             <div className="ch-menu">
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
-                <p>Hello from Menu</p>
+                <MenuItems />
             </div>
         </>
     );

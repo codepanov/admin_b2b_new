@@ -8,7 +8,7 @@ function App() {
     return (
         <div className="ch-a-container">
 
-            {/* Left Side */}
+            {/* MENU / Left Side */}
             <div className="ch-side-left">
             <img
                 src={logoImage}
@@ -23,7 +23,7 @@ function App() {
             <div className="ch-search">
                 Search
             </div>
-            <div className="ch-menu-items">
+            <div className="ch-menu-wrapp">
                 <Menu />
             </div>
                 
