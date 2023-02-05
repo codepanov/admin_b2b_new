@@ -9,36 +9,56 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import { lines } from "../temp_data/products";
 
+import Submenu from './SubMenu';
+
 export default function MenuItems() {
 
     const [lines_filteredData, setLines_filteredData] = React.useState(lines);
 
-    // // names of lines (linije), from which submenu is opened (for example: "Grejanje")
-    // const [lineName, setLineName] = React.useState('');
+    // names of lines (linije), from which submenu is opened (for example: "Grejanje")
+    const [lineName, setLineName] = React.useState('');
 
-    // // names of families of products (familije) (e.g. Bakarne cevi, fiting, armatura, ...)
-    // const [families, setFamilies] = React.useState([]);
+    // names of families of products (familije) (e.g. Bakarne cevi, fiting, armatura, ...)
+    const [families, setFamilies] = React.useState([]);
 
-    // // state of submenu (open or closed)
-    // const [submenu, setSubmenu] = React.useState(false);
+    // state of submenu (open or closed)
+    const [submenu, setSubmenu] = React.useState(false);
 
-    // // string typed into the search textfield
-    // const [searchParam, setSearchParam] = React.useState('');
+    // string typed into the search textfield
+    const [searchParam, setSearchParam] = React.useState('');
 
-    // // when search is set to motion, this state is set to true (to open searchSubmenu)
-    // const [searchSubmenu, setSearchSubmenu] = React.useState(false);
+    // when search is set to motion, this state is set to true (to open searchSubmenu)
+    const [searchSubmenu, setSearchSubmenu] = React.useState(false);
 
-    // const handleClick = (index) => {
-    //     setLineName(lines_filteredData[index].text);
-    //     setFamilies(lines_filteredData[index].families);
-    // };
+    const handleClick = (index) => {
+        setLineName(lines_filteredData[index].text);
+        setFamilies(lines_filteredData[index].families);
+    };
 
-    // function openSubmenu() {
-    //     setSubmenu(true);
-    // }
+    function openSubmenu() {
+        setSubmenu(true);
+    }
+
+    function closeSubmenu() {
+        setSubmenu(false);
+    }
+    
+    function openSearchSubmenu() {
+        setSearchSubmenu(true);
+    }
+    
+    function closeSearchSubmenu() {
+        setSearchSubmenu(false);
+    }
 
     return (
         <>
+            <Submenu 
+                submenu={submenu}
+                closeSubmenu={closeSubmenu} 
+                lineName={lineName} 
+                families={families}
+            />
             <div className="ch-menu-splitter">
                 PROGRAM
                 <hr />
@@ -48,8 +68,8 @@ export default function MenuItems() {
                     lines_filteredData.map((line, index) => (
                         <React.Fragment key={index}>
                             <ListItem  disablePadding className="ch-menu-item">
-                                {/* <ListItemButton onClick={ () => {handleClick(index); openSubmenu()} }> */}
-                                <ListItemButton>
+                                <ListItemButton onClick={ () => {handleClick(index); openSubmenu()} }>
+                                {/* <ListItemButton> */}
                                     <span className="material-icons" style={{width: 40}}>{line.icon}</span>
                                     <ListItemText primary={line.text} />
                                     <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }}>

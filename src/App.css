@@ -34,7 +34,7 @@ body {
 	flex-direction: column;
 }
 .ch-search {
-	border: 3px solid red;
+	border: 13px solid red;
 	width: 100%;
 	min-height: 75px;
 	box-sizing: border-box;
@@ -46,6 +46,7 @@ body {
   	overflow-y: auto;
 }
 .ch-menu {
+	border: 2px solid green;
 	width: 100%;
 	padding: 10px 5px;
 	box-sizing: border-box;
