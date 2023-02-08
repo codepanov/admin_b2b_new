@@ -50,7 +50,7 @@ body {
   	overflow-y: auto;
 }
 .ch-menu {
-	border: 2px solid green;
+	/* border: 2px solid green; */
 	width: 100%;
 	padding: 10px 5px;
 	box-sizing: border-box;
@@ -98,8 +98,8 @@ body {
 	margin-left: 0px !important;
 }
 .ch-content-right {
-	/* z-index: 3; */
-	/* background: white; */
+	z-index: 3;
+	background: white;
 	/* border: 3px solid grey; */
 	width: -webkit-fill-available;
 	overflow-x: auto;

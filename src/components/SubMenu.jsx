@@ -1,6 +1,8 @@
 import * as React from 'react';
 // import eventBus from '../eventBus';
 
+import SubSubmenu from './Subsubmenu';
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -11,8 +13,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 const SubMenu = ({submenu, closeSubmenu, lineName, families}) => {
-
-
     const submenu_wrapper = React.useRef(null);
     // const scroll_handler_wrapper = React.useRef(null);
 
@@ -39,8 +39,37 @@ const SubMenu = ({submenu, closeSubmenu, lineName, families}) => {
     // // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, []);
 
+    // names of family (familije)
+    const [familyName, setFamilyName] = React.useState('');
+
+    // names of groups of products (grupe) (e.g. Bakarne cevi - PVC, Čelične cevi (crne), Kompresioni fiting - COMAP, ...)
+    const [groups, setGroups] = React.useState([]);
+
+    const handleClick = (index) => {
+        setFamilyName(families[index].name);
+        setGroups(families[index].groups);
+    }
+
+    // state of subSubmenu (open or closed)
+    const [subSubmenu, setSubSubmenu] = React.useState(false);
+
+    function openSubSubmenu() {
+        setSubSubmenu(true);
+    }
+
+    function closeSubSubmenu() {
+        setSubSubmenu(false);
+    }
+
     return ( 
         <>
+            <SubSubmenu 
+                subSubmenu={subSubmenu} 
+                closeSubSubmenu={closeSubSubmenu}
+                lineName={lineName}
+                familyName={familyName}
+                groups={groups}
+            />
             <div
                 ref={submenu_wrapper}
                 style={{
@@ -88,8 +117,8 @@ const SubMenu = ({submenu, closeSubmenu, lineName, families}) => {
                         families.map((family, index) => (
                             <React.Fragment key={index}>
                             <ListItem  disablePadding className="ch-menu-item">
-                                {/* <ListItemButton onClick={() => {handleClick(index); openSubSubmenu() }}> */}
-                                <ListItemButton>
+                                <ListItemButton onClick={() => {handleClick(index); openSubSubmenu() }}>
+                                {/* <ListItemButton> */}
                                     <ListItemText primary={family.name} />
                                     <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }}>
                                         <NavigateNextIcon sx={{
