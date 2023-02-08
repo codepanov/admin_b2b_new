@@ -40,7 +40,7 @@ const MainContent = () => {
     return (
         <>
             <div className="ch-header" ref={el1}>
-                <p>I am a header</p>
+                <p>HEADER CONTENT</p>
             </div>
             <div className="ch-table-wrapper" ref={el2}>
                 <Table />

@@ -32,5 +32,20 @@ export default function App() {
         []
     );
 
-    return <MaterialReactTable columns={columns} data={data} />;
+    return  (
+                <MaterialReactTable
+                    columns={columns}
+                    data={data}
+                    muiTablePaperProps={{
+                        //change the mui box shadow
+                        elevation: 0,
+                        //customize paper styles
+                        sx: {
+                            borderRadius: '0',
+                            borderTop: '1px solid #e0e0e0',
+                            borderBottom: '1px solid #e0e0e0',
+                        },
+                    }}
+                />
+            )
 }

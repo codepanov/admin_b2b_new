@@ -12,7 +12,7 @@ import { lines } from "../temp_data/products";
 import Submenu from './SubMenu';
 
 export default function MenuItems() {
-
+    // eslint-disable-next-line
     const [lines_filteredData, setLines_filteredData] = React.useState(lines);
 
     // names of lines (linije), from which submenu is opened (for example: "Grejanje")
@@ -24,11 +24,11 @@ export default function MenuItems() {
     // state of submenu (open or closed)
     const [submenu, setSubmenu] = React.useState(false);
 
-    // string typed into the search textfield
-    const [searchParam, setSearchParam] = React.useState('');
+    // // string typed into the search textfield
+    // const [searchParam, setSearchParam] = React.useState('');
 
-    // when search is set to motion, this state is set to true (to open searchSubmenu)
-    const [searchSubmenu, setSearchSubmenu] = React.useState(false);
+    // // when search is set to motion, this state is set to true (to open searchSubmenu)
+    // const [searchSubmenu, setSearchSubmenu] = React.useState(false);
 
     const handleClick = (index) => {
         setLineName(lines_filteredData[index].text);
@@ -43,13 +43,13 @@ export default function MenuItems() {
         setSubmenu(false);
     }
     
-    function openSearchSubmenu() {
-        setSearchSubmenu(true);
-    }
+    // function openSearchSubmenu() {
+    //     setSearchSubmenu(true);
+    // }
     
-    function closeSearchSubmenu() {
-        setSearchSubmenu(false);
-    }
+    // function closeSearchSubmenu() {
+    //     setSearchSubmenu(false);
+    // }
 
     return (
         <>
@@ -69,11 +69,12 @@ export default function MenuItems() {
                         <React.Fragment key={index}>
                             <ListItem  disablePadding className="ch-menu-item">
                                 <ListItemButton onClick={ () => {handleClick(index); openSubmenu()} }>
-                                {/* <ListItemButton> */}
+                                {/* <ListItemButton onClick={ () => handleClick(index) }> */}
                                     <span className="material-icons" style={{width: 40}}>{line.icon}</span>
                                     <ListItemText primary={line.text} />
                                     <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }}>
                                         <NavigateNextIcon
+                                            // sx required to position the icon correctly (a bit to the right)
                                             sx={{
                                                 position: 'relative',
                                                 left: '25px'
