@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
-export default function SubSubmenu({subSubmenu, closeSubSubmenu, lineName, familyName, groups}) {
+const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups}) => {
     const subsubmenu_wrapper = React.useRef(null);
     // const scroll_handler_wrapper = React.useRef(null);
 
@@ -70,7 +70,7 @@ export default function SubSubmenu({subSubmenu, closeSubSubmenu, lineName, famil
                     transition: "margin-left 0.25s",
                 }}
             >
-                <List className="ch-submenu-button">
+                <List className="ch-sub-button">
                     <ListItem  
                         disablePadding 
                         className="ch-menu-item"
@@ -115,22 +115,18 @@ export default function SubSubmenu({subSubmenu, closeSubSubmenu, lineName, famil
                         top: '169px',
                     }}
                 > */}
-                    <List
-                        // style={{
-                        //     height: 'inherit'
-                        // }}
-                    >
+                    <List  className="ch-sub-button">
                         {
-                        groups?.map((group, index) => (
-                            <React.Fragment key={index}>
-                            <ListItem  disablePadding className="ch-menu-item">
-                                <ListItemButton onClick={() => {}}>
-                                    <ListItemText primary={group} />
-                                    <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }} />
-                                </ListItemButton>
-                            </ListItem>
-                            </React.Fragment>
-                        ))
+                            groups?.map((group, index) => (
+                                <React.Fragment key={index}>
+                                <ListItem disablePadding className="ch-menu-item">
+                                    <ListItemButton onClick={() => {}}>
+                                        <ListItemText primary={group} />
+                                        <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                                </React.Fragment>
+                            ))
                         }
                     </List>
                 {/* </div> */}
@@ -139,3 +135,5 @@ export default function SubSubmenu({subSubmenu, closeSubSubmenu, lineName, famil
     );
         
 }
+
+export default SubSubmenu;

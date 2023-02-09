@@ -13,7 +13,7 @@ const data = [
     }
 ];
 
-export default function App() {
+const App = () => {
     const columns = useMemo(
         () => [
             {
@@ -33,19 +33,21 @@ export default function App() {
     );
 
     return  (
-                <MaterialReactTable
-                    columns={columns}
-                    data={data}
-                    muiTablePaperProps={{
-                        //change the mui box shadow
-                        elevation: 0,
-                        //customize paper styles
-                        sx: {
-                            borderRadius: '0',
-                            borderTop: '1px solid #e0e0e0',
-                            borderBottom: '1px solid #e0e0e0',
-                        },
-                    }}
-                />
-            )
+        <MaterialReactTable
+            columns={columns}
+            data={data}
+            muiTablePaperProps={{
+                //change the mui box shadow
+                elevation: 0,
+                //customize paper styles
+                sx: {
+                    borderRadius: '0',
+                    borderTop: '1px solid #e0e0e0',
+                    borderBottom: '1px solid #e0e0e0',
+                },
+            }}
+        />
+    )
 }
+
+export default App;

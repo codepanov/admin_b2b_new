@@ -11,7 +11,7 @@ import { lines } from "../temp_data/products";
 
 import Submenu from './SubMenu';
 
-export default function MenuItems() {
+const MenuItems = () => {
     // eslint-disable-next-line
     const [lines_filteredData, setLines_filteredData] = React.useState(lines);
 
@@ -136,3 +136,5 @@ export default function MenuItems() {
         </>
     );
 }
+
+export default MenuItems;
