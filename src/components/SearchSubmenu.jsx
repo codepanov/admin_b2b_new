@@ -78,7 +78,7 @@ export default function SearchSubmenu({searchSubmenu, closeSearchSubmenu, lines_
                 transition: "margin-left 0.25s",
             }}
         >
-            <List className="ch-sub-button">
+            <List className="ch-list">
             <ListItem disablePadding className="ch-menu-item">
                 <ListItemButton
                     onClick={ () => {animate(searchsubmenu_wrapper); closeSearchSubmenu(); stopSearch()} }
@@ -108,7 +108,7 @@ export default function SearchSubmenu({searchSubmenu, closeSearchSubmenu, lines_
                                 <hr />
                             </div>
                             {
-                                <List className="ch-sub-button">
+                                <List className="ch-list">
                                 {
                                 // ! there is a strong possibility that we can have a slow down here,
                                 // ! because MUI components are loading in a multyple loop

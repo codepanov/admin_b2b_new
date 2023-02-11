@@ -71,7 +71,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
                     transition: "margin-left 0.25s",
                 }}
             >
-                <List className="ch-sub-button">
+                <List className="ch-list">
                     <ListItem disablePadding className="ch-menu-item">
                         <ListItemButton
                             onClick={ () => {animate(subsubmenu_wrapper); closeSubSubmenu()} }
@@ -102,7 +102,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
                         top: '169px',
                     }}
                 > */}
-                    <List className="ch-sub-button">
+                    <List className="ch-list">
                         {
                             groups?.map((group, index) => (
                                 <React.Fragment key={index}>

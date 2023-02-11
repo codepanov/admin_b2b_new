@@ -146,7 +146,7 @@ const MenuItems = () => {
         return lines_filtered
     }
 
-    function debounce(func, timeout = 350) {
+    function debounce(func, timeout = 250) {
         let timer;
         return (...args) => {
             clearTimeout(timer);
@@ -183,7 +183,7 @@ const MenuItems = () => {
                 PROGRAM
                 <hr />
             </div>
-            <List>
+            <List className="ch-list">
                 {
                     lines_filteredData.map((line, index) => (
                         <React.Fragment key={index}>
