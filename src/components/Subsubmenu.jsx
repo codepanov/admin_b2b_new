@@ -28,10 +28,11 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
         const isEllipsisActive = (element) => { return (element.offsetWidth < element.scrollWidth) }
         if (isEllipsisActive(lineName)) {
             hr.style.display = 'none';
+            lineName.style.display = 'block';
             lineName.style.overflow = 'hidden';
             lineName.style.textOverflow = 'ellipsis';
             lineName.style.whiteSpace = 'nowrap';
-            lineName.style.display = 'block';
+            lineName.style.minHeight = '14px';
         } else {
             hr.style.display = 'block';
             lineName.style.display = 'flex';
