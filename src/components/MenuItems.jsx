@@ -119,12 +119,13 @@ const MenuItems = () => {
                 const groupsASCII = checkArrayforUnicodeStrings(groupsUNICODE)
                 const groupsResultASCII = groupsASCII
                 .filter(
-                    group => {
+                    group => { 
                         return group
                         .toString()
                         .toLowerCase()
                         .includes(searchParam)
-                })
+                    }
+                )
                 
                 // converting result back to UNICODE
                 const groupsResultUNICODE = searchedResultUnicode(groupsUNICODE, groupsASCII, groupsResultASCII)
@@ -162,6 +163,7 @@ const MenuItems = () => {
         searchParam && openSearchSubmenu();
         // eslint-disable-next-line
         if(searchParam || searchParam === '') setLines_filteredData(searchGroups(lines, searchParam));
+
         // eslint-disable-next-line
     }, [searchParam]);
 

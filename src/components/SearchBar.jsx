@@ -18,9 +18,9 @@ export default function BasicTextFields({searchParam, className}) {
 			clearInput();
 		});
 
-    // remove the event listener when the component unmounts
-    return () => {
-      	eventBus.off('stopSearch', () => {
+		// remove the event listener when the component unmounts
+		return () => {
+      		eventBus.off('stopSearch', () => {
         		clearInput();
       		});
     	}
@@ -36,7 +36,7 @@ export default function BasicTextFields({searchParam, className}) {
 			noValidate
 			autoComplete="off"
     	>
-      		<TextField id="outlined-basic" label="Pretraga grupa" variant="outlined"
+      		<TextField id="outlined-basic" label="Pretraga kategorija proizvoda" variant="outlined"
 				// ! to have the input field focused on page load
 				// inputRef={(input) => {
 				// 	if(input != null) {
