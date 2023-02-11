@@ -118,7 +118,6 @@ const SubMenu = ({submenu, closeSubmenu, lineName, families}) => {
                             <React.Fragment key={index}>
                             <ListItem  disablePadding className="ch-menu-item">
                                 <ListItemButton onClick={() => {handleClick(index); openSubSubmenu() }}>
-                                {/* <ListItemButton> */}
                                     <ListItemText primary={family.name} />
                                     <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }}>
                                         <NavigateNextIcon sx={{

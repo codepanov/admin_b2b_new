@@ -72,14 +72,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
                 }}
             >
                 <List className="ch-sub-button">
-                    <ListItem  
-                        disablePadding 
-                        className="ch-menu-item"
-                        // sx={{
-                        //     position: 'relative',
-                        //     top: '160px',
-                        // }}
-                    >
+                    <ListItem disablePadding className="ch-menu-item">
                         <ListItemButton
                             onClick={ () => {animate(subsubmenu_wrapper); closeSubSubmenu()} }
                         >
@@ -95,14 +88,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
                         </ListItemButton>
                     </ListItem>
                 </List>
-                <div 
-                    className="ch-menu-splitter ellipsis"
-                    // style={{
-                    //     position: 'relative',
-                    //     top: '169px',
-                    //     padding: '0 5px',
-                    // }}
-                >
+                <div className="ch-menu-splitter ellipsis">
                     { familyName.toUpperCase() }
                     <hr />
                 </div>
@@ -116,7 +102,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
                         top: '169px',
                     }}
                 > */}
-                    <List  className="ch-sub-button">
+                    <List className="ch-sub-button">
                         {
                             groups?.map((group, index) => (
                                 <React.Fragment key={index}>

@@ -10,6 +10,8 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { lines } from "../temp_data/products";
 
 import Submenu from './SubMenu';
+import SearchBar from "./SearchBar";
+import SearchSubmenu from "./SearchSubmenu";
 
 const MenuItems = () => {
     // eslint-disable-next-line
@@ -24,11 +26,11 @@ const MenuItems = () => {
     // state of submenu (open or closed)
     const [submenu, setSubmenu] = React.useState(false);
 
-    // // string typed into the search textfield
-    // const [searchParam, setSearchParam] = React.useState('');
+    // string typed into the search textfield
+    const [searchParam, setSearchParam] = React.useState('');
 
-    // // when search is set to motion, this state is set to true (to open searchSubmenu)
-    // const [searchSubmenu, setSearchSubmenu] = React.useState(false);
+    // when search is set to motion, this state is set to true (to open searchSubmenu)
+    const [searchSubmenu, setSearchSubmenu] = React.useState(false);
 
     const handleClick = (index) => {
         setLineName(lines_filteredData[index].text);
@@ -43,13 +45,125 @@ const MenuItems = () => {
         setSubmenu(false);
     }
     
-    // function openSearchSubmenu() {
-    //     setSearchSubmenu(true);
-    // }
+    function openSearchSubmenu() {
+        setSearchSubmenu(true);
+    }
     
-    // function closeSearchSubmenu() {
-    //     setSearchSubmenu(false);
-    // }
+    function closeSearchSubmenu() {
+        setSearchSubmenu(false);
+    }
+
+    // ! UNICODE to ASCII Search functions
+    // check all words for unicode chars
+    function isCirylicWord(word) {
+        // eslint-disable-next-line no-control-regex
+        return /[^\u0000-\u00ff]/.test(word);
+    }
+
+    // convert UNICODE to ASCII following provided map
+    function convertCir2ASC(word) {
+        const comparatorMap = {
+        'Č': 'C', 
+        'Ć': 'C', 
+        'č': 'c',
+        'ć': 'c',
+        'Đ': 'Dj',
+        'đ': 'dj',
+        'Š': 'S',
+        'š': 's',
+        'Ž': 'Z',
+        'ž': 'z'
+        }
+        const output = []
+        for(const char of word) {
+            comparatorMap[char]
+            ? output.push(comparatorMap[char])
+            : output.push(char)
+        }
+        return output.join('')
+    }
+
+    /**
+     loop through array and check if any of the strings are UNICODE:
+        isCirylicWord(word),
+    if yes, then convert to ASCII:
+        convertCir2ASC(word),
+    otherwise just push to new, 'clean' collection
+    */
+    // eslint-disable-next-line
+    function checkArrayforUnicodeStrings(array) {
+        const result = []
+        array.forEach(word => {
+            isCirylicWord(word)
+            ? result.push(convertCir2ASC(word))
+            : result.push(word)
+        })
+        return result
+    }
+
+    // function compares cleaned array indexes from the search, and returns same ones from original array
+    // eslint-disable-next-line
+    function searchedResultUnicode(Array, cleanedArray, searchedResult) {
+        const result = []
+        searchedResult.forEach(si => cleanedArray.forEach((ci, ind) => {
+        si === ci && result.push(Array[ind])
+        }))
+        return result
+    }
+
+    function searchGroups(data, searchParam) {
+        const lines_copy = JSON.parse(JSON.stringify(data));
+        lines_copy.forEach(object => {
+            object.families.forEach(family => {
+                const groupsUNICODE = family.groups
+                const groupsASCII = checkArrayforUnicodeStrings(groupsUNICODE)
+                const groupsResultASCII = groupsASCII
+                .filter(
+                    group => {
+                        return group
+                        .toString()
+                        .toLowerCase()
+                        .includes(searchParam)
+                })
+                
+                // converting result back to UNICODE
+                const groupsResultUNICODE = searchedResultUnicode(groupsUNICODE, groupsASCII, groupsResultASCII)
+
+                // reasigning object groups with found [result] or an empty array []
+                if(groupsResultUNICODE.length) {
+                    Object.assign(family, { groups: groupsResultUNICODE })
+                } else if(!groupsResultUNICODE.length) {
+                    Object.assign(family, { groups: groupsResultUNICODE })
+                }
+            })
+        })
+        const lines_filtered = []
+        lines_copy.forEach(line => {
+            const family = line.families.filter(family => family.groups.length)
+            family.length && Object.assign(line, { families: family })
+            family.length && lines_filtered.push(line)
+        })
+        return lines_filtered
+    }
+
+    function debounce(func, timeout = 350) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+    }
+    const setSearchParamDebounced = debounce((param) => setSearchParam(param));
+    // const setSearchParamDebounced = (param) => setSearchParam(param)
+
+    React.useEffect(() => {
+        // ! open searchSubmenu
+        // eslint-disable-next-line
+        searchParam && openSearchSubmenu();
+        // eslint-disable-next-line
+        if(searchParam || searchParam === '') setLines_filteredData(searchGroups(lines, searchParam));
+        // eslint-disable-next-line
+    }, [searchParam]);
 
     return (
         <>
@@ -58,6 +172,12 @@ const MenuItems = () => {
                 closeSubmenu={closeSubmenu} 
                 lineName={lineName} 
                 families={families}
+            />
+            <SearchBar className="ch-searchbar" searchParam={setSearchParamDebounced} />
+            <SearchSubmenu
+                searchSubmenu={searchSubmenu}
+                closeSearchSubmenu={closeSearchSubmenu}
+                lines_filteredData={lines_filteredData}
             />
             <div className="ch-menu-splitter">
                 PROGRAM
@@ -69,7 +189,6 @@ const MenuItems = () => {
                         <React.Fragment key={index}>
                             <ListItem  disablePadding className="ch-menu-item">
                                 <ListItemButton onClick={ () => {handleClick(index); openSubmenu()} }>
-                                {/* <ListItemButton onClick={ () => handleClick(index) }> */}
                                     <span className="material-icons" style={{width: 40}}>{line.icon}</span>
                                     <ListItemText primary={line.text} />
                                     <ListItemIcon sx={{ color: "#D2D5D1", minWidth: 40 }}>

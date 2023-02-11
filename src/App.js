@@ -20,9 +20,7 @@ function App() {
                     // zIndex: 4,
                     }}
                 />
-                <div className="ch-search">
-                    Search
-                </div>
+                <div className="ch-search" />
                 <div className="ch-menu-wrapp">
                     <Menu />
                 </div>
