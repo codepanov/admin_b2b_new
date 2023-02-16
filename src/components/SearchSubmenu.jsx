@@ -58,6 +58,7 @@ export default function SearchSubmenu({searchSubmenu, closeSearchSubmenu, lines_
     return (
         <>
         <div
+            className="scroll-handler"
             ref={searchsubmenu_wrapper}
             style={{
                 // border: '2px solid red',

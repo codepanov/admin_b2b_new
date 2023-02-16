@@ -21,7 +21,7 @@ function App() {
                     }}
                 />
                 <div className="ch-search" />
-                <div className="ch-menu-wrapp">
+                <div className="ch-menu-wrapp scroll-handler">
                     <Menu />
                 </div>
                 

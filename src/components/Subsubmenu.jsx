@@ -51,6 +51,7 @@ const SubSubmenu = ({subSubmenu, closeSubSubmenu, lineName, familyName, groups})
     return (
         <>
             <div
+                className="scroll-handler"
                 ref={subsubmenu_wrapper}
                 style={{
                     // border: '2px solid red',
