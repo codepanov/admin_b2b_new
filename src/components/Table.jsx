@@ -55,22 +55,22 @@ const App = () => {
 
     return  (
         <>
-        <MaterialReactTable
-            columns={columns}
-            data={rows}
-            muiTablePaperProps={{
-                //change the mui box shadow
-                elevation: 0,
-                //customize paper styles
-                sx: {
-                    borderRadius: '0',
-                    // borderTop: '1px solid #e0e0e0',
-                    borderBottom: '1px solid #e0e0e0',
-                },
-            }}
-            enableColumnResizing
-            columnResizeMode="onChange"
-        />
+            <MaterialReactTable
+                columns={columns}
+                data={rows}
+                muiTablePaperProps={{
+                    //change the mui box shadow
+                    elevation: 0,
+                    //customize paper styles
+                    sx: {
+                        borderRadius: '0',
+                        // borderTop: '1px solid #e0e0e0',
+                        borderBottom: '1px solid #e0e0e0',
+                    },
+                }}
+                enableColumnResizing
+                columnResizeMode="onChange"
+            />
         </>
     )
 }

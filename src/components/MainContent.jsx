@@ -26,8 +26,14 @@ const MainContent = () => {
         }
     }
 
+    const tableResizeObserver = new ResizeObserver(entries => {
+        entries.forEach(entry => handleOverlap());
+    });
+
     React.useEffect(() => {
         window.addEventListener('resize', handleOverlap);
+
+        tableResizeObserver.observe(el2.current);
     
         // cleanup component to prevent memory leaks
         return () => {

@@ -82,6 +82,7 @@ body {
 	border-right-width: 0px;
 	border-bottom-width: 0px;
 	border-left-width: 0px;
+	border-color: #A0A1A3;
 }
 .ch-list {
   	width: -webkit-fill-available;
@@ -129,6 +130,8 @@ body {
 .ch-table-wrapper {
   	width: 100%;
 	overflow: auto;
+	/* border: 2px solid red; */
+	box-sizing: border-box;
 }
 
 /* .scroll-handler {} */
