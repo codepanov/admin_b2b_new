@@ -137,8 +137,34 @@ body {
 	border: #242A38;
 }
 
-/* .scroll-handler */
+/* SIDE DETAILS */
+.sd-details-wrapper {
+	/* border: 3px solid red; */
+	min-width: 500px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+.common {
+	border: 3px solid red;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+}
+.sd-header {
+	height: 75px;
+	display: flex;
+}
+.sd-details {
+	flex-grow: 1;
+}
+.sd-products {
+	flex-grow: 1;
+}
 
+/* SCROLLBAR STYLES */
 .scroll-handler::-webkit-scrollbar {
 	width: 7px;
 	height: 7px;
@@ -159,5 +185,10 @@ body {
 @media (max-width: 680px) {
   	.ch-side-left {
     	display: none;
+  	}
+}
+@media (max-width: 1300px) {
+	.sd-details-wrapper {
+		display: none;
   	}
 }

@@ -3,6 +3,7 @@ import './App.css';
 import logoImage from './images/logo_CH.svg';
 import MainContent from './components/MainContent';
 import Menu from './components/Menu';
+import SideDetails from './components/SideDetails';
 
 function App() {
     return (
@@ -27,9 +28,12 @@ function App() {
                 
             </div>
 
-            {/* Main Content */}
+            {/* MAIN CONTENT */}
             <div className="ch-content-right">
                 <MainContent />
+            </div>
+            <div className="sd-details-wrapper">
+                <SideDetails />
             </div>
         </div>
     );
