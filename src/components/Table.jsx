@@ -16,6 +16,13 @@ const formatCurrency = (value) => {
 //simple data example - Check out https://www.material-react-table.com/docs/examples/remote for a more complex example
 
 const App = () => {
+
+    const horizontal_scroll = document.querySelector('.ch-table-container')
+    React.useEffect(() => {
+        horizontal_scroll.children[1].classList.add('scroll-handler')
+
+    }, [horizontal_scroll])
+
     const columns = useMemo(
         () => [
             {
@@ -56,6 +63,7 @@ const App = () => {
     return  (
         <>
             <MaterialReactTable
+                ref={horizontal_scroll}
                 columns={columns}
                 data={rows}
                 muiTablePaperProps={{
@@ -67,6 +75,7 @@ const App = () => {
                         // borderTop: '1px solid #e0e0e0',
                         borderBottom: '1px solid #e0e0e0',
                     },
+                    className: 'ch-table-container'
                 }}
                 enableColumnResizing
                 columnResizeMode="onChange"

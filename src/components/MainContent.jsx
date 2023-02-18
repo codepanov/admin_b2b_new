@@ -48,7 +48,7 @@ const MainContent = () => {
             <div className="ch-header" ref={el1}>
                 <p>HEADER CONTENT</p>
             </div>
-            <div className="ch-table-wrapper" ref={el2}>
+            <div className="ch-table-wrapper scroll-handler" ref={el2}>
                 <Table />
             </div>
         </>

@@ -133,11 +133,15 @@ body {
 	/* border: 2px solid red; */
 	box-sizing: border-box;
 }
+.MuiTableContainer-root {
+	border: #242A38;
+}
 
-/* .scroll-handler {} */
+/* .scroll-handler */
 
 .scroll-handler::-webkit-scrollbar {
 	width: 7px;
+	height: 7px;
 }
 .scroll-handler::-webkit-scrollbar-thumb {
 	background: orange;
@@ -146,6 +150,9 @@ body {
 	background-color: rgb(255, 255, 255);
 } */
 .scroll-handler::-webkit-scrollbar-thumb:hover {
+	background: rgb(255, 135, 0);
+}
+.scroll-handler::-webkit-scrollbar-thumb:horizontal:hover {
 	background: rgb(255, 135, 0);
 }
 
