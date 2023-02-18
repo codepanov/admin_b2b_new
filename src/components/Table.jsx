@@ -17,11 +17,13 @@ const formatCurrency = (value) => {
 
 const App = () => {
 
-    const horizontal_scroll = document.querySelector('.ch-table-container')
     React.useEffect(() => {
-        horizontal_scroll.children[1].classList.add('scroll-handler')
+        window.onload = () => {
+            const horizontal_scroll = document.querySelector('.ch-table-container')
+            horizontal_scroll.children[1].classList.add('scroll-handler')
+        }
 
-    }, [horizontal_scroll])
+    }, [])
 
     const columns = useMemo(
         () => [
@@ -63,7 +65,6 @@ const App = () => {
     return  (
         <>
             <MaterialReactTable
-                ref={horizontal_scroll}
                 columns={columns}
                 data={rows}
                 muiTablePaperProps={{
