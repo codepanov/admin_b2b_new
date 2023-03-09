@@ -145,8 +145,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;
+	overflow: auto;
+	background: white;
+	color: rgba(0, 0, 0, 0.87);
 }
-.common {
+.sd-height {
+	min-height: 350px;
+}
+.sd-common {
 	border: 3px solid red;
 	width: 100%;
 	display: flex;
@@ -154,14 +160,53 @@ body {
 	box-sizing: border-box;
 }
 .sd-header {
-	height: 75px;
+	/* height: 75px; */
 	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border-bottom: none;
 }
 .sd-details {
-	flex-grow: 1;
+	/* flex-grow: 1; */
+	border-bottom: none;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+.sd-details h3, .sd-products h3 {
+	align-self: self-start;
+    padding-left: 20px;
+	margin-bottom: 20px;
+}
+.sd-details-row-wrapper {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+.sd-details-row-wrapper > div {
+	/* border: 1px solid red; */
+	width: 50%;
+	margin-bottom: 30px;
+}
+.sd-details-row-left {
+	text-align: end;
+	padding-right: 10px;
+}
+.sd-details-row-right {
+	text-align: start;
+	padding-left: 10px;
+}
+.sd-separator {
+	height: 30px;
+    width: 90%;
+    border-top: 1px solid red;
 }
 .sd-products {
 	flex-grow: 1;
+	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
 }
 
 /* SCROLLBAR STYLES */
