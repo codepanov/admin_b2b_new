@@ -15,7 +15,7 @@ const formatCurrency = (value) => {
 
 //simple data example - Check out https://www.material-react-table.com/docs/examples/remote for a more complex example
 
-const App = () => {
+const OrderTable = () => {
 
     React.useEffect(() => {
         window.onload = () => {
@@ -80,9 +80,12 @@ const App = () => {
                 }}
                 enableColumnResizing
                 columnResizeMode="onChange"
+                muiTableBodyRowProps={({ row }) => ({
+                    onClick: () => {console.log(row.original)},
+                })}
             />
         </>
     )
 }
 
-export default App;
+export default OrderTable;
