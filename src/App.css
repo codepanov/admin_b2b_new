@@ -29,6 +29,7 @@ body {
 	height: 100%;
 	box-sizing: border-box;
 	display: flex;
+	overflow: hidden;
 }
 .ch-side-left {
 	/* border: 3px solid purple; */
@@ -101,6 +102,9 @@ body {
 .animate {
 	margin-left: 0px !important;
 }
+.animate-sideDetails {
+	margin-right: 0px !important;
+}
 .ch-content-right {
 	z-index: 5;
 	background: white;
@@ -148,6 +152,8 @@ body {
 	overflow: auto;
 	background: white;
 	color: rgba(0, 0, 0, 0.87);
+	margin-right: -500px;
+	transition: margin-right 0.25s;
 }
 .sd-height {
 	min-height: 350px;

@@ -5,6 +5,8 @@ import Chip from '@mui/material/Chip';
 
 import { rows } from '../temp_data/table_data';
 
+import { SideDetailsContext } from '../contexts/SideDetailsContext';
+
 const formatDate = (date) => {
     return new Date(date).toLocaleString('sr');
 }
@@ -16,6 +18,7 @@ const formatCurrency = (value) => {
 //simple data example - Check out https://www.material-react-table.com/docs/examples/remote for a more complex example
 
 const OrderTable = () => {
+    const { setContextValue } = React.useContext(SideDetailsContext);
 
     React.useEffect(() => {
         window.onload = () => {
@@ -62,6 +65,10 @@ const OrderTable = () => {
         ], []
     );
 
+    const handleTableRowClick = React.useCallback((row) => {
+        setContextValue(row.original);
+    }, [setContextValue]);
+
     return  (
         <>
             <MaterialReactTable
@@ -81,7 +88,7 @@ const OrderTable = () => {
                 enableColumnResizing
                 columnResizeMode="onChange"
                 muiTableBodyRowProps={({ row }) => ({
-                    onClick: () => {console.log(row.original)},
+                    onClick: () => handleTableRowClick(row), //consider implementing class animate-sideDetails here, instead in App.js
                 })}
             />
         </>
